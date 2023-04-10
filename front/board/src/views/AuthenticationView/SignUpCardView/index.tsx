@@ -105,8 +105,9 @@ function FirstPage() {
         onChange={(event) => onEmailChangeHandler(event)}
         />
         { 
-          emailPatternCheck === null && emailValidate === null ? (<></>) :
+          emailPatternCheck === null ? (<></>) :
           !emailPatternCheck ? (<FormHelperText sx={{ color: 'red' }}>이메일 형식이 맞지 않습니다.</FormHelperText>) :
+          emailValidate === null ? (<FormHelperText sx={{ color: 'orange' }}>이메일 중복 체크를 해주세요.</FormHelperText>) :
           !emailValidate ? (<FormHelperText sx={{ color: 'red' }}>사용할 수 없는 이메일입니다.</FormHelperText>) :
                           (<FormHelperText sx={{ color: 'green' }}>사용 가능한 이메일입니다.</FormHelperText>)
         }
@@ -257,8 +258,9 @@ function SecondPage() {
         onChange={(event) => onTelNumberHandler(event)}
         />
         {
-          telNumberValidate === null &&  telNumberPatternCheck === null ? (<></>) :
+          telNumberValidate === null ? (<></>) :
           !telNumberPatternCheck ? (<FormHelperText sx={{ color: 'red' }}>전화번호 패턴이 일치하지 않습니다.</FormHelperText>) :
+          telNumberPatternCheck === null ? (<FormHelperText sx={{ color: 'orange' }}>전화번호 중복체크를 해주세요.</FormHelperText>) :
           telNumberValidate ? (<FormHelperText sx={{ color: 'green' }}>사용 가능한 전화번호입니다.</FormHelperText>) :
                               (<FormHelperText sx={{ color: 'red' }}>사용중인 전화번호입니다.</FormHelperText>)
         }
